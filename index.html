@@ -1,0 +1,172 @@
+  <!-- TO RUN IN BROWSER:
+    1. Install vscode extension Name: open in `browser open-in-browser` by TechER
+    2. Right click html file and either run in default browser or another browser
+  -->
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css"/>
+      <title>A/B testing</title>
+  </head>
+  <body>
+    <div aria-label='Website title' class = 'website_title'>
+      <h1>UIUX Project 3: A/B Testing</div>
+    </div>
+    <div aria-label='Website content'id='website_content'>
+      <div class = 'center_bar'>
+        <div class = 'page_header'>
+          <h2>Overview</h2>
+          <p>In this project, I attempt to prove that by making certain minimal styling changes to a given website, we can increase the ease and speed for the user to complete a given task.</p>
+          <p>To do so, we can use A/B testing to see if such styling changes can make differences that are stastically signficant.</p>
+        </div>
+        <div class = 'body_element'>
+          <h2>Minor Changes to the Website</h2>
+          <div class = 'content'>
+            <p>When I attempted to complete the task on the given website, I was able to succeed, but the one thing that bugged me a bit while doing it was that I was not sure whether the light blue buttons on the right were clickable or not. There was no semblance of clickability to be found (no hover effects, button was light-colored), so I made sure to change the buttons to have a hover state and a darker color.</p>
+            <p>I also had trouble finding which button belonged to which appointment, so I added an hr element to divide up the buttons (I wanted to put a horizontal line, but I was not able to get it to show up, but the spacing is also better).</p>
+            <p>I then made two more minor changes: one was to change the color of the physician name, appointment name, and location to be different, and another to order the dates in chronological order. I wanted to group the appointments by physician or location but could not get it to work with the amount of time given to us to modify the website.</p>
+            <h4>Here is a screenshot of the new modified website (that one button is not colored differently, I just took the screenshot while hovering to show the different hover color).</h4>
+            <img src="modified.png">
+          </div>
+        </div>
+        <div class = 'page_header'>
+          <h2>Hypothesis pairs</h2>
+          <p>Here, I come up with null and alternative hypotheses for 3 different metrics that I can measure with the website.</p>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 1: Misclick Rate</h3>
+          <div class = 'content'>
+            <h4>Null hypothesis:</h4>
+            <p>There is no difference between the misclick rate of version A in comparison to version B.</p>
+            <p>I predicted that I would be able to reject this null hypothesis (since people are accustomed to where to click for the appointment).</p>
+            <h4>Alternative hypothesis:</h4>
+            <p>The misclick rate of version B is different than the misclick rate of version A.</p>
+            <p>I made this alternative hypothesis because with the darker colored buttons and the hover effects I added to the buttons (I also grouped the buttons with the appointments), there will probably be less misclicks.</p>
+            </ol>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 2: Time on Page</h3>
+          <div class = 'content'>
+            <h4>Null hypothesis:</h4>
+            <p>There is no difference between the time spent on the page of version A and the time spent on the page of version B.</p>
+            <p>I predicted that I would reject this null hypothesis. This is slightly connected to the misclick rate, as you would spend longer on the page if you misclick more times.</p>
+            <h4>Alternative hypothesis:</h4>
+            <p>The time spent on the page of version B is shorter than the time spent on the page of version A.</p>
+            <p>Given that I changed the buttons as described in the “misclick rate” section, if the user can succeed on the task faster, they will spend less time on the page.</p>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 3: Time to first click</h3>
+          <div class = 'content'>
+            <h4>Null hypothesis:</h4>
+            <p>There is no difference between the time to the first click on version A and the time to the first click on version B.</p>
+            <p> I predicted that I would probably not reject this null hypothesis. If I had made more improvements to the layout to make finding “Adam Ng” and the hospital easier, then perhaps I would reject this null hypothesis (however, I did not have time to do this).</p>
+            <h4>Alternative hypothesis:</h4>
+            <p>The time to the first click on version B is shorter than the time to the first click on version A.</p>
+            <p>I made this alternative hypothesis because if I make accessibility improvements to the webpage (such as grouping buttons and making the font different colors to distinguish location and physician), it should in theory take a shorter time to find and click a target button.</p>
+          </div>
+        </div>
+        <div class = 'page_header'>
+          <h2>Statistical Analysis</h2>
+          <p>Here, I run various statistical tests to analyze whether my changes were statistically significant using 3 different metrics.</p>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 1: Misclick Rate</h3>
+          <div class = 'content'>
+            <h4>Chosen test:</h4>
+            <p>I chose the chi-squared test because here we are examining the frequency of misclicks (the 2 categories here are misclicked and non-misclicked).</p>
+            <h4>Is the result statistically significant?</h4>
+            <p>Yes!</p>
+            <h4>Numbers that support this:</h4>
+            <p>The chi-squared value is a 12.23, which results in a p-value of a staggering 0.0004, which means that there is a 0.04 percent chance that (given that there is no difference in the change) this happened by chance, which is very low and way below 5 percent.</p>
+            <h4>Conclusion:</h4>
+            <p>We are confident that the alternative hypothesis is true (that there is a difference of misclick rate between version B and version A).</p>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 2: Time on Page</h3>
+          <div class = 'content'>
+            <h4>Chosen test:</h4>
+            <p>I chose the one-tailed t-test, as our alternative hypothesis checks to see if the time on page is “shorter” for B than for A, so we would like to see statistical significance for a continuous variable in one direction.</p>
+            <h4>Is the result statistically significant?</h4>
+            <p>Yes!</p>
+            <h4>Numbers that support this:</h4>
+            <p>The t-value is -43.56, meaning that the new average is 43.56 standard deviations away from the average, which results in a p value of less than 0.0001, which is way less than 0.05. A less than 0.01 percent chance of this difference happening by chance shows that the null hypothesis is quite unlikely.</p>
+            <h4>Conclusion:</h4>
+            <p>We are confident that the alternative hypothesis is true (that there is a shorter time spent on the page for version B compared to version A).</p>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 3: Time to first click</h3>
+          <div class = 'content'>
+            <h4>Chosen test:</h4>
+            <p>I chose the one-tailed t-test for this. Same reasoning as the above two; the alternative hypothesis requests that the time to the first click is “shorter”, so we are looking for statistical significance in one direction.</p>
+            <h4>Is the result statistically significant?</h4>
+            <p>Yes!</p>
+            <h4>Numbers that support this:</h4>
+            <p>The t-value is -16.04, meaning that the new average is 16.04 standard deviations away from the version A average, which results in a p-value of also less than 0.0001. A less than 0.01 percent chance of this difference happening by chance shows that the null hypothesis is quite unlikely.</p>
+            <h4>Conclusion:</h4>
+            <p>We are confident that the alternative hypothesis is true (that there is a shorter time to the first click for version B compared to version A).</p>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h2>Summary Statistics</h2>
+          <p>Here are some summary statistics regarding the individual websites.</p>
+        <div class = 'body_element'>
+          <h3>Metric 1: Misclick Rate</h3>
+          <div class = 'content'>
+            <p>This is a chi-squared test, so the counts are the summary statistic (but this is also just the data itself). There were 12 people who succeeded and 12 people who misclicked for version A, and all people (22) succeeded for version B, and the expected value was 6.63 (misclick) and 17.36 (success). Both of these are quite far from 12 and 12 and 0 and 22, so this shows that the change in version B was most likely quite significant in the amount of misclicks and successes.</p>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 2: Time on Page</h3>
+          <div class = 'content'>
+            <h4>Version A:</h4>
+            <p>The average time spent on the page is 36139 ms, the median is 36748.5 ms and the variance is 212313710 ms. 24 data points were collected.</p>
+            <p>This means that the performance of people completing the task varied on the high end (some were lucky and got it on the first try, but many others were not).</p>
+            <h4>Version B:</h4>
+            <p>The average time spent on the page is 8958.5 ms, the median is 8362 ms, and the variance is 8563820.7 ms. 22 data points were collected.</p>
+            <p>This means that people were consistently able to complete the task quickly on this version of the website.</p>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h3>Metric 3: Time to first click</h3>
+          <div class = 'content'>
+            <h4>Version A:</h4>
+            <p>The average time to the first click is 14476.875 ms, the median time is 12491.5 ms, and the variance is 70695020.29 ms. 24 data points were collected.</p>
+            <p>This means that people's hesistance varied greatly on the high end (some were able to pinpoint down the interface easily and make a decision (whether right or wrong), while others were not).</p>
+            <h4>Version B:</h4>
+            <p>The average time to the first click is 5795.545 ms, the median time is 5553.5 ms, and the variance is 6444395.022 ms. 22 data points were collected.</p>
+            <p>This means that people were consistently able to determine with confidence what seemed to be the right choice on this website.</p>
+          </div>
+        </div>
+        <div class = 'body_element'>
+          <h2>Ending Comments</h2>
+          <div class = 'content'>
+            <p>This was a good exercise to attempt to analyze data with A/B testing. However, even if the tweak in the website did make a difference, I think the dramatic effect shown in the statistics was due to the fact that the same population tried the challenge twice and were used to finding where the buttons were (and in that way, the data is very biased). However, we were not equipped with the resources to salvage a large sample of data in this class, so it is understandable.</p>
+          </div>
+        </div>
+        <div id = 'bottom' class = 'credits sidebar_item'>
+          <div class = 'sidebar_title'>
+            Credits
+          </div>
+          <p>This website was made by Allison Hsieh</p>
+        </div>
+      </div>
+      <div id = 'right' class = 'right_bar'>
+        <div class = 'credits sidebar_item'>
+          <div class = 'sidebar_title'>
+            Credits
+          </div>
+          <p>This website was made by Allison Hsieh.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
